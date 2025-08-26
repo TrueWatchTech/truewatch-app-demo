@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".NativeActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/manual_action_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/manual_action" />
+
+        <Button
+            android:id="@+id/manual_http_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/manual_okhttp_setting" />
+
+        <Button
+            android:id="@+id/manual_http_custom_interceptor_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/okhttp_custom_eventlistener_interceptor" />
+
+        <Button
+            android:id="@+id/manual_http_okhttp_custom_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/manual_trace_resource_okhttp_custom" />
+
+        <Button
+            android:id="@+id/manual_http_http_url_connection_custom_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/manual_trace_resource_httpurlconnection_custom" />
+
+        <Button
+            android:id="@+id/manual_error_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/manual_error" />
+
+        <Button
+            android:id="@+id/manual_longtask_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/manual_longtask" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

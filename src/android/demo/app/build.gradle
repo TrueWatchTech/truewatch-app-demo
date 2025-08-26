@@ -1,0 +1,198 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-parcelize'
+
+// Apply FT plugin
+apply plugin: 'ft-plugin'
+
+android {
+    def localProperty = getLocalProperties()
+
+    buildFeatures {
+        buildConfig = true
+        compose true
+    }
+
+    namespace 'com.ft.mobile.sdk.demo'
+    compileSdk 34
+    defaultConfig {
+        applicationId "com.truewatch.mobile.sdk.demo"
+        minSdkVersion 23
+        targetSdkVersion 34
+        versionCode 14
+        versionName "1.2.6"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+//        buildConfigField "String", "CUSTOM_VALUE", "\"Custom value\""
+//        buildConfigField "String", "DATAKIT_URL", "\"${ft_env.datakitRUMUrl}\""
+//        buildConfigField "String", "DATAWAY_URL", "\"${ft_env.datawayRUMUrl}\""
+//        buildConfigField "String", "DATAWAY_CLIENT_TOKEN", "\"${ft_env.cliToken}\""
+//        buildConfigField "String", "RUM_APP_ID", "\"${ft_env.rumAppid}\""
+//        buildConfigField "String", "DEMO_API_URL", "\"${ft_env.demoAPIURL}\""
+//        buildConfigField "String", "ENV", "\"${ft_env.prodTestEnv}\""
+    }
+    signingConfigs {
+        release {
+            storeFile file(localProperty.get("tw_keyStorePath"))
+            storePassword localProperty.get("tw_storePassword")
+            keyAlias localProperty.get("tw_keyAlias")
+            keyPassword localProperty.get("tw_keyPassword")
+        }
+
+    }
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.15"
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    flavorDimensions = ['tier']
+
+    productFlavors {
+
+        prodTest {
+            buildConfigField "String", "CUSTOM_VALUE", "\"Custom value\""
+            buildConfigField "String", "DATAKIT_URL", "\"${ft_env.datakitRUMUrl}\""
+            buildConfigField "String", "DATAWAY_URL", "\"${ft_env.datawayRUMUrl}\""
+            buildConfigField "String", "DATAWAY_CLIENT_TOKEN", "\"${ft_env.cliToken}\""
+            buildConfigField "String", "OTEL_URL", "\"${ft_env.otelUrl}\""
+            buildConfigField "String", "RUM_APP_ID", "\"${ft_env.rumAppid}\""
+            buildConfigField "String", "DEMO_API_URL", "\"${ft_env.demoAPIURL}\""
+            buildConfigField "String", "ENV", "\"${ft_env.prodTestEnv}\""
+            dimension "tier"
+        }
+
+        prodPublish {
+            buildConfigField "String", "CUSTOM_VALUE", "\"Custom value\""
+            buildConfigField "String", "DATAKIT_URL", "\"${ft_env.datakitRUMUrl}\""
+            buildConfigField "String", "DATAWAY_URL", "\"${ft_env.datawayRUMUrl}\""
+            buildConfigField "String", "DATAWAY_CLIENT_TOKEN", "\"${ft_env.cliToken}\""
+            buildConfigField "String", "OTEL_URL", "\"${ft_env.otelUrl}\""
+            buildConfigField "String", "RUM_APP_ID", "\"${ft_env.rumAppid}\""
+            buildConfigField "String", "DEMO_API_URL", "\"${ft_env.demoAPIURL}\""
+            buildConfigField "String", "ENV", "\"${ft_env.prodPublishEnv}\""
+            dimension "tier"
+        }
+
+    }
+
+}
+
+FTExt {
+    showLog = true
+    autoUploadMap = true
+    autoUploadNativeDebugSymbol = true
+    datakitUrl = ft_env.datakitRUMUrl
+    datawayToken = ft_env.datawayToken
+    appId = ft_env.rumAppid
+    env = 'common'
+    generateSourceMapOnly = true
+
+    prodFlavors {
+        // The configuration in Favor will override the configuration in the main project FTExt
+        prodTest {
+            autoUploadMap = true
+            autoUploadNativeDebugSymbol = true
+            datakitUrl = ft_env.datakitRUMUrl
+            datawayToken = ft_env.datawayToken
+            appId = ft_env.rumAppid
+            env = ft_env.prodTestEnv
+
+        }
+        prodPublish {
+            autoUploadMap = true
+            autoUploadNativeDebugSymbol = true
+            datakitUrl = ft_env.datakitRUMUrl
+            datawayToken = ft_env.datawayToken
+            appId = ft_env.rumAppid
+            env = ft_env.prodPublishEnv
+        }
+    }
+}
+
+def getLocalProperties() {
+
+    def storePassword = System.getenv("tw_storePassword")
+    def keyAlias = System.getenv("tw_keyAlias")
+    def keyPassword = System.getenv("tw_keyPassword")
+    def keyStorePath = System.getenv("tw_keyStorePath")
+
+
+    Properties properties = new Properties()
+    if (storePassword != null && keyAlias != null && keyPassword != null && keyStorePath != null) {
+        println("getLocalProperties for env")
+        properties.setProperty("tw_storePassword", storePassword)
+        properties.setProperty("tw_keyAlias", keyAlias)
+        properties.setProperty("tw_keyPassword", keyPassword)
+        properties.setProperty("tw_keyStorePath", keyStorePath)
+
+    } else {
+        properties.load(project.rootProject.file('local.properties').newDataInputStream())
+    }
+    return properties
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.2'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    implementation project(path: ':nativelib')
+
+
+    //================FT-SDK dependencies required for use=================//
+    //FT-SDK dependency
+
+    // RUM, Log, Trace，
+    implementation('com.truewatch.ft.mobile.sdk.tracker.agent:ft-sdk:1.7.0-alpha22')
+    // RUM Error Native Crash
+    implementation 'com.truewatch.ft.mobile.sdk.tracker.agent:ft-native:1.1.2'
+    // Session Replay
+    implementation 'com.truewatch.ft.mobile.sdk.tracker.agent:ft-session-replay:0.1.2-alpha02'
+    // Session Replay Material
+    implementation 'com.truewatch.ft.mobile.sdk.tracker.agent:ft-session-replay-material:0.1.1-alpha01'
+
+    implementation 'com.google.code.gson:gson:2.8.5'
+    // Add this dependency when you need to monitor network data to implement the network engine
+    // implementation 'com.squareup.okhttp3:okhttp:3.12.12'
+    implementation 'com.squareup.okhttp3:okhttp:4.5.0'
+    implementation 'com.squareup.picasso:picasso:2.8'
+
+    implementation "androidx.navigation:navigation-compose:2.7.5"
+    implementation "androidx.activity:activity-compose:1.6.0"
+    implementation "androidx.compose.material3:material3:1.1.0"
+    implementation "androidx.compose.ui:ui:1.6.0"
+    implementation "androidx.compose.ui:ui-tooling-preview:1.2.0"
+
+    //otel SDK
+    implementation("io.opentelemetry:opentelemetry-sdk:1.36.0")
+    implementation("io.opentelemetry:opentelemetry-exporter-otlp:1.36.0") // OTLP Exporter
+    implementation("io.opentelemetry:opentelemetry-api:1.36.0")
+    implementation("io.opentelemetry:opentelemetry-context:1.36.0")
+
+    //    implementation files('libs/ft-session-replay-debug.aar')
+    //    implementation files('libs/ft-sdk-debug.aar')
+
+}

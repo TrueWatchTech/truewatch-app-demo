@@ -1,0 +1,127 @@
+PODS:
+  - FTMobileSDK (1.6.2-alpha.3):
+    - FTMobileSDK/FTMobileAgent (= 1.6.2-alpha.3)
+  - FTMobileSDK/Extension (1.6.2-alpha.3):
+    - FTMobileSDK/FTSDKCore/FTRUM
+    - FTMobileSDK/FTSDKCore/Logger
+    - FTMobileSDK/FTSDKCore/URLSessionAutoInstrumentation
+  - FTMobileSDK/FTMobileAgent (1.6.2-alpha.3):
+    - FTMobileSDK/FTSDKCore
+  - FTMobileSDK/FTSDKCore (1.6.2-alpha.3):
+    - FTMobileSDK/FTSDKCore/BaseUtils (= 1.6.2-alpha.3)
+    - FTMobileSDK/FTSDKCore/DataManager (= 1.6.2-alpha.3)
+    - FTMobileSDK/FTSDKCore/FTRUM (= 1.6.2-alpha.3)
+    - FTMobileSDK/FTSDKCore/FTWKWebView (= 1.6.2-alpha.3)
+    - FTMobileSDK/FTSDKCore/Logger (= 1.6.2-alpha.3)
+    - FTMobileSDK/FTSDKCore/Protocol (= 1.6.2-alpha.3)
+    - FTMobileSDK/FTSDKCore/RemoteConfig (= 1.6.2-alpha.3)
+    - FTMobileSDK/FTSDKCore/URLSessionAutoInstrumentation (= 1.6.2-alpha.3)
+  - FTMobileSDK/FTSDKCore/BaseUtils (1.6.2-alpha.3):
+    - FTMobileSDK/FTSDKCore/BaseUtils/Base (= 1.6.2-alpha.3)
+    - FTMobileSDK/FTSDKCore/BaseUtils/Swizzle (= 1.6.2-alpha.3)
+    - FTMobileSDK/FTSDKCore/BaseUtils/Thread (= 1.6.2-alpha.3)
+  - FTMobileSDK/FTSDKCore/BaseUtils/Base (1.6.2-alpha.3):
+    - FTMobileSDK/FTSDKCore/BaseUtils/Thread
+  - FTMobileSDK/FTSDKCore/BaseUtils/Swizzle (1.6.2-alpha.3):
+    - FTMobileSDK/FTSDKCore/BaseUtils/Base
+  - FTMobileSDK/FTSDKCore/BaseUtils/Thread (1.6.2-alpha.3)
+  - FTMobileSDK/FTSDKCore/DataManager (1.6.2-alpha.3):
+    - FTMobileSDK/FTSDKCore/BaseUtils/Base
+    - FTMobileSDK/FTSDKCore/BaseUtils/Thread
+    - FTMobileSDK/FTSDKCore/Protocol
+  - FTMobileSDK/FTSDKCore/FTRUM (1.6.2-alpha.3):
+    - FTMobileSDK/FTSDKCore/BaseUtils/Base
+    - FTMobileSDK/FTSDKCore/Protocol
+  - FTMobileSDK/FTSDKCore/FTWKWebView (1.6.2-alpha.3):
+    - FTMobileSDK/FTSDKCore/BaseUtils/Swizzle
+    - FTMobileSDK/FTSDKCore/Protocol
+  - FTMobileSDK/FTSDKCore/Logger (1.6.2-alpha.3):
+    - FTMobileSDK/FTSDKCore/BaseUtils/Base
+    - FTMobileSDK/FTSDKCore/Protocol
+  - FTMobileSDK/FTSDKCore/Protocol (1.6.2-alpha.3)
+  - FTMobileSDK/FTSDKCore/RemoteConfig (1.6.2-alpha.3):
+    - FTMobileSDK/FTSDKCore/DataManager
+  - FTMobileSDK/FTSDKCore/URLSessionAutoInstrumentation (1.6.2-alpha.3):
+    - FTMobileSDK/FTSDKCore/BaseUtils/Swizzle
+    - FTMobileSDK/FTSDKCore/Protocol
+  - FTMobileSDK/FTSessionReplay (1.6.2-alpha.3):
+    - FTMobileSDK/FTSDKCore
+  - MBProgressHUD (1.2.0)
+  - OpenTelemetry-Swift-Api (1.17.1)
+  - OpenTelemetry-Swift-DataCompression (1.17.1):
+    - OpenTelemetry-Swift-Api (= 1.17.1)
+    - OpenTelemetry-Swift-Sdk (= 1.17.1)
+  - OpenTelemetry-Swift-Protocol-Exporter-Common (1.17.1):
+    - OpenTelemetry-Swift-Api (= 1.17.1)
+    - OpenTelemetry-Swift-Sdk (= 1.17.1)
+    - SwiftProtobuf (~> 1.28)
+  - OpenTelemetry-Swift-Protocol-Exporter-Http (1.17.1):
+    - OpenTelemetry-Swift-Api (= 1.17.1)
+    - OpenTelemetry-Swift-DataCompression (= 1.17.1)
+    - OpenTelemetry-Swift-Protocol-Exporter-Common (= 1.17.1)
+    - OpenTelemetry-Swift-Sdk (= 1.17.1)
+    - SwiftProtobuf (~> 1.28)
+  - OpenTelemetry-Swift-Sdk (1.17.1):
+    - OpenTelemetry-Swift-Api (= 1.17.1)
+  - RxCocoa (6.9.0):
+    - RxRelay (= 6.9.0)
+    - RxSwift (= 6.9.0)
+  - RxRelay (6.9.0):
+    - RxSwift (= 6.9.0)
+  - RxSwift (6.9.0)
+  - SDWebImage (5.21.1):
+    - SDWebImage/Core (= 5.21.1)
+  - SDWebImage/Core (5.21.1)
+  - SnapKit (5.6.0)
+  - SwiftProtobuf (1.31.0)
+  - Toast-Swift (5.0.1)
+
+DEPENDENCIES:
+  - FTMobileSDK (= 1.6.2-alpha.3)
+  - FTMobileSDK/Extension (= 1.6.2-alpha.3)
+  - FTMobileSDK/FTSessionReplay (= 1.6.2-alpha.3)
+  - MBProgressHUD (~> 1.2.0)
+  - OpenTelemetry-Swift-Protocol-Exporter-Http
+  - OpenTelemetry-Swift-Sdk
+  - RxCocoa
+  - RxSwift
+  - SDWebImage
+  - SnapKit (~> 5.6.0)
+  - Toast-Swift (~> 5.0.1)
+
+SPEC REPOS:
+  trunk:
+    - FTMobileSDK
+    - MBProgressHUD
+    - OpenTelemetry-Swift-Api
+    - OpenTelemetry-Swift-DataCompression
+    - OpenTelemetry-Swift-Protocol-Exporter-Common
+    - OpenTelemetry-Swift-Protocol-Exporter-Http
+    - OpenTelemetry-Swift-Sdk
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - SDWebImage
+    - SnapKit
+    - SwiftProtobuf
+    - Toast-Swift
+
+SPEC CHECKSUMS:
+  FTMobileSDK: 8f343c6327edbac46cfef4a95efe857f03ef4276
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  OpenTelemetry-Swift-Api: f2ddbf8be9050e6210bbc2f5835897c0e9e3e7aa
+  OpenTelemetry-Swift-DataCompression: fe932e9846ee466357a2cea18a06789544b2f87d
+  OpenTelemetry-Swift-Protocol-Exporter-Common: b7dad9cada3305207f21d359b4008afa0d754840
+  OpenTelemetry-Swift-Protocol-Exporter-Http: 061379a476d914e182a85a7668b4dad659423ea4
+  OpenTelemetry-Swift-Sdk: 9899a53be2b982c88cf776d2252b0ac4126133d7
+  RxCocoa: ac16414696ae706516be3e1ab00fcce5bdc9be8a
+  RxRelay: 6b0c930e5cef57d5fe2032571e5e65b78e3cbdb1
+  RxSwift: 31649ace6aceeb422e16ff71c60804f9c3281ed9
+  SDWebImage: f29024626962457f3470184232766516dee8dfea
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  SwiftProtobuf: caa61117d9a5eeb60a52375f6685991a1fd4bd7b
+  Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
+
+PODFILE CHECKSUM: dfcfc34b64b2aa11bc02f969ab9774b136c9f0ed
+
+COCOAPODS: 1.16.2

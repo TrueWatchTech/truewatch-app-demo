@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="12dp"
+    android:orientation="vertical"
+    tools:context=".NativeActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/native_crash_java_kotlin_data_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/crash_java_kotlin" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/native_crash_c_cpp_data_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/crash_c_cpp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/native_long_task_data_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/uiblock_longtask" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/native_compose_activity_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/compose_activity" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/native_dynamic_rum_tag_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tag_dynamic_setting" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/native_session_replay_compat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/session_replay" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/native_dynamic_create_otel_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/create_otel_span" />
+
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

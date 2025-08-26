@@ -1,0 +1,19 @@
+//
+//  Config-Demo.develop.xcconfig
+//  FTSDKDemo
+//
+//  Created by hulilei on 2023/8/9.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+// Import the corresponding .xcconfig for pod
+#include "Pods/Target Support Files/Pods-FTSDKDemo/Pods-FTSDKDemo.debug.xcconfig"
+
+SDK_APP_ID = "app_id_common"
+// In URL // you need to add $()
+SDK_DATAKIT_ADDRESS = http:/$()/xxxxxxxx:9529
+SDK_ENV = common
+SDK_DATAWAY_TOKEN = token
+
